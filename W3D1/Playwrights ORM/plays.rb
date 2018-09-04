@@ -65,5 +65,47 @@ class Play
     Play.new(result.first)
 
   end
+  def find_by_playwright(name)
 
+
+  end
+
+end
+
+class Playwright
+
+
+def initialize(options)
+  @id = options['id']
+  @name = options['name']
+  @birth_uyear= options['birth_year']
+
+end
+
+def create
+  raise "#{self} is already created" if @id
+  PlayDBConnection.instance.execute(<<-SQL ,@name ,@birth_year)
+    INSERT INTO
+    playwrights(name , birth_year)
+    VALUES
+    (?,?)
+
+
+
+  SQL
+  @id = PlayDBConnection.instance.last_insert_row_id
+
+end
+
+def update
+  raise "#{self} doesn\'t exists" unless @id
+  PlayDBConnection.instance.execute(<<-SQL @name,@birth_year,@id)
+  UPDATE
+  playwrights
+  SET
+  name = ? , birth_year = ?
+  WHERE
+   id = ?
+ SQL
+end
 end
