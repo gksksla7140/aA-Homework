@@ -14,7 +14,7 @@
  *= require_self
  */
 
- html, body, section, article, h1, h2, p, nav, main, figure,footer {
+ html, body, section, article, h1, h2, p, nav, main, figure {
    margin: 0;
    border: 0;
    padding: 0;
@@ -103,6 +103,11 @@ nav form {
 
 nav input {
   color: yellow;
+}
+
+footer {
+  margin: auto;
+  align-content: center;
 }
 
 .main-nav {

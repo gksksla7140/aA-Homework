@@ -29,10 +29,11 @@
     </nav>
     <main>
       <%= yield %>
+      <footer>
+        <%= yield :footer %>
+
+      </footer>
     </main>
   </body>
-  <footer>
-    <%= yield :footer %>
 
-  </footer>
 </html>
